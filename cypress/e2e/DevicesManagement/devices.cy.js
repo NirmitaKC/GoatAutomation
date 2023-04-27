@@ -82,7 +82,7 @@ describe('logs in to GOAT', () => {
             cy.get(':nth-child(11) > .btn').click()    
         })
 
-        it.only('Views Device Logs', () => {
+        it('Views Device Logs', () => {
             cy.get(':nth-child(1) > :nth-child(1) > .btn > .voyager-eye').click()
         })
 

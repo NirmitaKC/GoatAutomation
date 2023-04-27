@@ -32,7 +32,7 @@ describe('logs in to GOAT', () => {
         .should('have.value', '25')
      })
 
-     it.only('Status', () => {
+     it('Status', () => {
         cy.get('td>.label-info')
         .first()
         .should('be.visible')
