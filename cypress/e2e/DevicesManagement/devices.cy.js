@@ -1,23 +1,29 @@
 /// <reference types="Cypress" />
 
 describe('logs in to GOAT', () => {
-   beforeEach(() => {    
-      cy.visit('https://test-goat.tekkon.com.np/admin/login')
-      cy.get('#email').type('admin@admin.com')
-      cy.get('#password').type('#t3k@d2021*')
-      cy.get('.signin').contains('Login').click()
-      cy.get('.hamburger-inner').click()
-      cy.get('.title').contains('Device Management').click()
-      cy.get('.title').contains('Devices').click()
-      //Assertion
-    })
+    beforeEach(() => {    
+       cy.visit('https://test-goat.tekkon.com.np/admin/login')
+       cy.get('#email').and('have.attr', 'placeholder', 'E-mail').type('admin@admin.com')
+       cy.get('#password').and('have.attr', 'placeholder', 'Password').type('#t3k@d2021*')
+       cy.get('.signin').contains('Login').click()
+
+       
+       cy.get('span.hamburger-inner')
+        .should('exist')
+        .should('have.class', 'hamburger-inner')
+        .click()
+
+       cy.get('.title').contains('Device Management').click()
+       
+       cy.get('.title').contains('Device Types').click()
+       
+     })
     
         it('Adds New', () => {
             cy.contains('span', 'Add New').click()
             cy.get('#title').type('pTest')
             cy.get('#select2-device_type_id-container').contains('Select Device Type').click()
             cy.contains('li', 'Television').click()
-            //cy.get('#serial_number').contains('[placeholder="Serial Number"]').type('12345')
             cy.get('#serial_number').type('12345')
             cy.get(':nth-child(5) > .form-control').type('dummyData')
             cy.get('#brand').type('pDell')
@@ -37,7 +43,7 @@ describe('logs in to GOAT', () => {
             cy.contains('li', 'Monitor').click()
         })
 
-        it('Shows Entries', () => {
+        it('Shows Number of Entries', () => {
             cy.get('[name="deviceDataTable_length"]').select('50').should('have.value', '50')
         })
 
