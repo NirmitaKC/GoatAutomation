@@ -41,45 +41,40 @@ describe('logs in to GOAT', () => {
      it('Verify that the admin can choose the number of entries to be shown from the menulist', () => {
         cy.get('[name="dataTable_length"]').select('25').should('have.value', '25')
         cy.get('.col-sm-12 tr').should('have.length', 26);
-        // verify the row of the table -> 25
+        
      })
 
      it('Bulk Deletes', () => {
         cy.get('#bulk_delete_btn').click()
-        // TO-DO : Not able to select multiple devices - bug - test cases yet to be added
+        
      })
 
      it('Searches', () => {
         cy.get('#dataTable_filter > label > .form-control').type('bro')
 
         cy.get('.col-sm-12 tbody tr:not([role="row"])').should('be.visible')
-        // Verify at least one data is displayed on the table 
+        
      })
 
      it('Actions-View', () => {
         cy.get('.view>.voyager-eye').first().click()
-        // Verify url or verify something on the page - title, device name
+       
      })
 
      it('Actions-Edit', () => {
         cy.get('.edit>.voyager-edit').first().click()
-        // Update all the data, save and verify updated data is displayed on the table
-        // first maa test-devicename and you changed the device name to nottest - verify nottest is available on the table
-        // If not displayed on the table then search and verify (in case)
+        
      })
 
      it('Actions-Delete', () => {
         cy.get('#delete-12>.voyager-trash').first().click()
-        // Verify deleted data is not displayed on the table - try to search
+       
      })
 
      it('Goes to next page', () => {
         cy.get('#dataTable_next > a').click()
-        // verify text change from 1-10 to 11-20
+        
      })
-
-     // TO-DO : Random name generate
-     // Table assertion
 
 
     })
