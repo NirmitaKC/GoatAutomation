@@ -28,7 +28,7 @@ describe('logs in to GOAT', () => {
         cy.get('.panel-body > :nth-child(2) > .form-control').type('Descriptionnnnnnn')
         cy.get('.panel-footer > .btn').should('contain', ' Save ').click()
         
-        // Verify newly added device is displayed cy.contains('td', 'dummyTestDeviceType')---> :     
+           
         cy.get('.col-sm-12').last().within(() => {       
         cy.get('td').eq(0).should('contain', randomString);
         cy.get('td').eq(1).should('contain', 'Descriptionnnnnnn');
