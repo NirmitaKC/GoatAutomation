@@ -71,7 +71,6 @@ describe('logs in to GOAT', () => {
         })
 
         it('Actions Delete', () => {
-            //cy.get('.voyager-trash').click()
             cy.get('#delete-59 > .voyager-trash').click()
             cy.get('#delete_modal > .modal-dialog > .modal-content > .modal-header > .close > span').click()
             
